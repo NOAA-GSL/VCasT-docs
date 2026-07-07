@@ -1,0 +1,59 @@
+# ====================================================
+# Date and Time Settings
+# ====================================================
+start_date: "2024-04-01_02:00:00"      # Starting date and time for processing
+end_date: "2024-04-01_03:00:00"        # Ending date and time for processing
+interval_hours: "1"                    # Time interval (in hours) at which processing is performed
+
+# Optional forecast lead time settings.
+start_lead_time: 0                     # Starting lead time (e.g., forecast offset in hours)
+end_lead_time: 5                       # Ending lead time
+interval_lead_time: 1                  # Lead time step (e.g., each 1 hour)
+
+# Or provide an explicit list instead of the start/end/interval triplet above:
+# lead_times: [0, 1, 2]
+
+members: ["ens_0", "ens_1"]            # Optional; loops over ensemble members if set
+
+# ====================================================
+# Forecast Configuration
+# ====================================================
+vars: "T2M"                            # Variable name (e.g., 2-meter temperature)
+
+fcst_model: "HRRR"                     # Forecast model name (used to look up the variable table)
+fcst_file_template: "/path/to/{year}{month}{day}/{members}/uppfiles/WRFPRS.GrbF{lead_time}.grib2"
+  # Template used to locate forecast files.
+
+# ====================================================
+# Reference Configuration
+# ====================================================
+ref_model: "HRRR"                      # Reference model name
+ref_file_template: "/path/to/{valid_year}{valid_month}{valid_day}/hrrr.t{valid_hour}z.wrfprsf00.grib2"
+  # Template used to locate reference files.
+
+# ====================================================
+# Output Configuration
+# ====================================================
+output_dir: "."                        # Directory for saving the output files
+output_filename: "output.data"         # File name for the output file
+
+# ====================================================
+# Statistical Metrics
+# ====================================================
+stat_type: "det"                       # "det" for deterministic, "ens" for ensemble
+stat_name:                             # List of statistical metrics to calculate
+  - "rmse"
+  - "bias"
+  - "fss:20:20:1"
+
+# ====================================================
+# Grid and Interpolation Settings
+# ====================================================
+interpolation: true                    # Whether to interpolate forecast/reference data
+target_grid: "/path/to/domain_grid.nc"
+  # The grid specification or file used as the target for interpolation
+
+# ====================================================
+# Parallel Processing
+# ====================================================
+processes: 1                           # Number of processes to run in parallel
