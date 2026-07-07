@@ -56,6 +56,21 @@ Forecast and Reference Settings
   ``{members}``, and the equivalent ``{valid_year}``/``{valid_month}``/
   ``{valid_day}``/``{valid_hour}`` fields for the observation valid time.
 
+- **vtable**:
+  Optional path to a custom variable lookup table, overriding VCasT's
+  bundled default (``util/lookup_table-v2.txt``). This tab-separated file
+  maps a ``variable``/``model`` pair (as given in ``vars``/``fcst_model``/
+  ``ref_model``) to the underlying GRIB2/NetCDF variable name, level, level
+  type, and units, e.g.:
+
+  .. code-block:: text
+
+     variable  model  model_variable  level_name       units  level  description
+     T2M       HRRR   2t              heightAboveGround  K    2      Temperature at 2m
+
+  Use this to add support for a model or variable not already present in
+  the default table.
+
 Output Configuration
 ^^^^^^^^^^^^^^^^^^^^^
 
