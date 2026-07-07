@@ -1,7 +1,7 @@
 Quick Start Guide
 =================
 
-This guide walks you through setting up VCasT in a Python environment for immediate use and testing. It assumes you have Python 3.8+ installed and access to Git.
+This guide walks you through setting up VCasT in a Python environment for immediate use and testing. It assumes you have Python 3.10+ installed and access to Git.
 
 1. Set Up a Virtual Environment
 -------------------------------
@@ -31,14 +31,14 @@ Full version (recommended – includes all features and dependencies):
 
 This installs the following dependencies:
 
-- `matplotlib<=3.8.4`
-- `pandas<=2.2.2`
-- `scipy<=1.13.0`
-- `numpy<=1.26.4`
-- `xarray<=2024.4.0`
-- `netCDF4<=1.6.5`
-- `zarr<=2.17.0`
-- `pygrib<=2.1.5`
+- `matplotlib>=3.8,<4`
+- `pandas>=2.2,<3`
+- `scipy>=1.11,<2`
+- `numpy>=1.26,<3`
+- `xarray>=2024.4,<2025`
+- `netCDF4>=1.6,<2`
+- `zarr>=2.17,<3`
+- `pygrib>=2.1,<3`
 
 Lite version (minimal dependencies for plotting and basic metrics):
 
@@ -48,10 +48,10 @@ Lite version (minimal dependencies for plotting and basic metrics):
 
 This installs:
 
-- `matplotlib<=3.8.4`
-- `pandas<=2.2.2`
-- `scipy<=1.13.0`
-- `numpy<=1.26.4`
+- `matplotlib>=3.8,<4`
+- `pandas>=2.2,<3`
+- `scipy>=1.11,<2`
+- `numpy>=1.26,<3`
 
 3. Confirm the Installation
 ---------------------------
@@ -74,11 +74,11 @@ First, clone the test repository:
    git clone https://github.com/NOAA-GSL/VCasT-tests
    mv VCasT-tests tests
 
-Then install `pytest` if needed and run:
+Then install the `dev` extra (which includes `pytest` and `Pillow`) if needed and run:
 
 .. code-block:: bash
 
-   pip install pytest
+   pip install "vcast[dev]"
    pytest -v tests
 
 This will validate the core functionality of the library, including its metric calculations and I/O behavior.

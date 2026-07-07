@@ -12,7 +12,7 @@ VCasT simplifies the post-processing of `.stat` files by allowing users to:
 - Generate output files for plotting or further statistical analysis.
 
 The filtering and processing behavior is controlled via a YAML configuration file. For a complete description of this file, see:  
-:doc:`MET Stat YAML Configuration <met_stat/met_stat_config>`
+:doc:`MET Stat YAML Configuration <met_stat_config>`
 
 This component is especially useful for batch verification pipelines where multiple `.stat` files are produced across different models, thresholds, or initialization times.
 
