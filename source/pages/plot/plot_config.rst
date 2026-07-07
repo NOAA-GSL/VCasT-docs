@@ -68,8 +68,11 @@ Grouping and Filtering
 - **fcst_var**:  
   Optionally used to restrict plotting to specific forecast variables.
 
-- **ci**:  
-  List of statistical variables for which confidence intervals should be drawn (e.g., `['rmse', 'mae']`).
+- **ci**:
+  List of statistical variables for which confidence intervals should be drawn (e.g., `['rmse', 'mae']`). Requires `{var}_bcl` / `{var}_bcu` columns in the input data (as produced by the :doc:`Aggregation <../agg/agg>` component with `ci: true`).
+
+- **ci_fill_between**:
+  [`true`, `false`] Controls how the confidence interval from `ci` is rendered. When `true`, it is drawn as a shaded band via `fill_between`. When omitted or `false`, it is drawn as error bars centered on each point instead.
 
 - **significance**:  
   [`true`, `false`] Whether to highlight statistically significant differences (requires pre-computed significance column).

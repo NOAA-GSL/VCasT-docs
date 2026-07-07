@@ -22,10 +22,15 @@ Input and Line Type Settings
 - **input_stat_folder**:  
   Path to the directory containing MET ``.stat`` files. All files must be located within a single folder to allow the tool to scan and process them collectively. Recursive search or multiple paths are not supported.
 
-- **line_type**:  
-  Specifies the MET line type to filter (e.g., ``cnt``, ``cts``, ``ecnt``, etc.). This setting determines which records are extracted and must be compatible with the metrics listed in ``stat_vars``. Only variables valid for the chosen line type will be available.
+- **line_type**:
+  Specifies the MET line type to filter (e.g., ``cnt``, ``cts``, ``ecnt``, ``mode_cts``, etc.). This setting determines which records are extracted and must be compatible with the metrics listed in ``stat_vars``. Only variables valid for the chosen line type will be available.
 
-  For a full list of supported line types and their associated statistics, see the `MET User’s Guide - Point-Stat Output Line Types <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#output-line-types>`_.
+  ``mode_cts`` is parsed differently from the other line types: since MODE
+  object-verification output files contain only ``mode_cts`` records with a
+  fixed column layout, rows are matched purely by column count rather than
+  by an in-row ``line_type`` field.
+
+  For a full list of supported line types and their associated statistics, see the `MET User’s Guide - Point-Stat Output Line Types <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/point-stat.html#output-line-types>`_ and the `MODE Output Line Types <https://metplus.readthedocs.io/projects/met/en/latest/Users_Guide/mode.html#output-line-types>`_.
 
 Date Settings
 ^^^^^^^^^^^^^
